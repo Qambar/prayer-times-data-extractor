@@ -1,0 +1,15 @@
+birmingham
+brighton
+cardiff
+glasgow
+hull
+leeds
+liverpool
+london
+manchester
+norwich
+plymouth
+portsmouth
+sheffield
+southampton
+swansea

@@ -1,0 +1,30 @@
+{
+  "name": "prayer-times-data-extractor",
+  "version": "1.0.0",
+  "description": "Data extractor for najaf.org",
+  "main": "data-extractor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qambar/prayer-times-data-extractor.git"
+  },
+  "keywords": [
+    "prayer",
+    "times",
+    "extractor"
+  ],
+  "author": "Qambar Raza <qambar@ymail.com> (http://www.qambarraza.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Qambar/prayer-times-data-extractor/issues"
+  },
+  "homepage": "https://github.com/Qambar/prayer-times-data-extractor#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "jquery": "^3.1.1",
+    "jsdom": "^9.8.3"
+  }
+}
