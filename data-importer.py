@@ -1,9 +1,33 @@
 import boto3
+import json
 
-# Get the service resource.
-dynamodb = boto3.resource('dynamodb')
+def importData(city):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('prayer-times')
 
-table = dynamodb.Table('prayer-times')
+    items = getItemsForCity(city)
 
-with open('filename') as f:
-    lines = f.readlines()
+    for item in items:
+        importItem(table, json.loads(item))
+
+def importItem(table, item):
+    table.put_item(
+       Item=item
+
+    )
+
+def getItemsForCity(city):
+    with open('data/' + city + '.json') as f:
+        items = f.read().splitlines()
+    return items
+
+def importAll():
+    # Get the service resource.
+    with open('list-of-cities.txt') as f:
+        cities = f.read().splitlines()
+
+    for city in cities:
+        importData(city)
+
+
+importAll();

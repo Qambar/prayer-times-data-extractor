@@ -30,13 +30,13 @@ function parseTimes(window, city) {
           var day = ("0" + (rowIndex + 1)).slice(-2);
           date = yearAndMonth + "-" + day;
           var databaseId = city + "-" + date;
-          resultRow['city-date'] = {"s": databaseId};
+          resultRow['city-date'] = databaseId;
 
           var cols = $(row).find('td');
 
           $.each(cols, function (colIndex, col) {
             if (colIndex != 0) {
-              resultRow[prayerTimeNames[colIndex - 1]] = {"s": formatTime(new Date(Date.parse(date)), $(col).text())};
+              resultRow[prayerTimeNames[colIndex - 1]] = formatTime(new Date(Date.parse(date)), $(col).text());
             }
           });
 
@@ -80,7 +80,7 @@ function writeData(filename, data){
 
 function getAllTimes() {
   var fs = require('fs');
-  var cities = fs.readFileSync('list-of-cities.txt').toString().split("\n");
+  var cities = fs.readFileSync(cityFile).toString().split("\n");
   for(i in cities) {
     getTimes(cities[i]);
   }
