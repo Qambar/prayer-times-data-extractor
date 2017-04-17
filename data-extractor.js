@@ -1,5 +1,5 @@
 var cityFile = "list-of-cities.txt";
-var startingMonth = 10;
+var startingMonth = 4;
 var prayerTimeNames = ['imsaak', 'dawn', 'sunrise', 'noon', 'sunset', 'maghrib'];
 
 var websiteUrl = "http://www.najaf.org/english/?city=";
@@ -7,13 +7,18 @@ var websiteUrl = "http://www.najaf.org/english/?city=";
 
 function formatTime(dateObj, time) {
   var hourMin = time.split('.');
-  
+
   var date = new Date(dateObj);
   date.setHours(hourMin[0]);
   date.setMinutes(hourMin[1]);
-  
+
   return date.toISOString();
 }
+
+function formatTwoDigit(num) {
+  return ("0" + num).slice(-2);
+}
+
 
 function parseTimes(window, city) {
 
@@ -22,7 +27,7 @@ function parseTimes(window, city) {
   var resultRows = [];
 
   for (var month = startingMonth; month <= 12; month++) {
-    var yearAndMonth = "2016-" + month;
+    var yearAndMonth = "2017-" + formatTwoDigit(month);
     $($('.table.table-hover.push-down-60 > tbody')[month - 1]).each(function () {
         var rows = $.makeArray($(this).find('tr')).splice(2);
         $.each(rows, function (rowIndex, row) {
