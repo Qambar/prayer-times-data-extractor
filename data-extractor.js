@@ -1,5 +1,5 @@
 var cityFile = "list-of-cities.txt";
-var startingMonth = 4;
+var startingMonth = 1;
 var prayerTimeNames = ['imsaak', 'dawn', 'sunrise', 'noon', 'sunset', 'maghrib'];
 
 var websiteUrl = "http://www.najaf.org/english/?city=";
@@ -27,7 +27,7 @@ function parseTimes(window, city) {
   var resultRows = [];
 
   for (var month = startingMonth; month <= 12; month++) {
-    var yearAndMonth = "2017-" + formatTwoDigit(month);
+    var yearAndMonth = "2019-" + formatTwoDigit(month);
     $($('.table.table-hover.push-down-60 > tbody')[month - 1]).each(function () {
         var rows = $.makeArray($(this).find('tr')).splice(2);
         $.each(rows, function (rowIndex, row) {
