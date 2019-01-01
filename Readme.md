@@ -5,13 +5,16 @@ This extracts data from najaf.org and uploads it to dynmodb on the configured aw
 ```
 pip3 install boto3
 npm install && mkdir data
-node data-extractor.js
 ```
 
 # Usage
 ```
-aws configure 
 # configure your aws credentials than import data into database.
+aws configure 
 
+# extract data from najaf.org
+node data-extractor.js
+
+# import data into dynamodb
 python data-importer.py
 ```
